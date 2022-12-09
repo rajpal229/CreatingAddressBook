@@ -46,5 +46,64 @@ namespace CreatingAddressBook
             }
 
         }
+        public void EditContact()
+        {
+            Console.WriteLine("To Edit Contact Enter  First Name");
+            string name = Console.ReadLine();
+            foreach (var record in data)
+            {
+                if (record.Firstname == name)
+                {
+                    while (true)
+                    {
+                        Console.WriteLine("Enter the option to Edit the Contact: ");
+                        Console.WriteLine("1 to Change First name \n2 to Change Last name \n3 to Change Address  \n4 to Change City  \n5 to Change State  \n6 to Change Zip  \n7 to Change Phonenumber  \n8 to Change Email \n9 Exit");
+
+                        int Check = Convert.ToInt32(Console.ReadLine());
+                        switch (Check)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter the New First Name: ");
+                                record.Firstname = Console.ReadLine();
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter the New Last Name: ");
+                                record.Lastname = Console.ReadLine();
+                                break;
+                            case 3:
+                                Console.WriteLine("Enter the New Address: ");
+                                record.Address = Console.ReadLine();
+                                break;
+                            case 4:
+                                Console.WriteLine("Enter the New City: ");
+                                record.City = Console.ReadLine();
+                                break;
+                            case 5:
+                                Console.WriteLine("Enter the New State: ");
+                                record.State = Console.ReadLine();
+                                break;
+                            case 6:
+                                Console.WriteLine("Enter the New Pin Code: ");
+                                record.Zip = Convert.ToInt32(Console.ReadLine());
+                                break;
+                            case 7:
+                                Console.WriteLine("Enter the New Phone Number: ");
+                                record.Phonenumber = Convert.ToInt64(Console.ReadLine());
+                                break;
+                            case 8:
+                                Console.WriteLine("Enter the New Email: ");
+                                record.Email = Console.ReadLine();
+                                break;
+                            case 9:
+                                return;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Enter the valid name!");
+                }
+            }
+        }
     }
 }
